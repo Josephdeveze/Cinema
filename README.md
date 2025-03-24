@@ -11,7 +11,7 @@ Ce projet est un système de gestion de cinéma développé en Java qui permet d
 ## 🚀 Installation
 1. Clonez le dépôt :
 ```bash
-git clone [https://github.com/Josephdeveze/Cinema.git]
+git clone https://github.com/Josephdeveze/Cinema.git
 ```
 2. Importez le projet dans votre IDE
 3. Installez les dépendances avec Maven :
