@@ -25,7 +25,7 @@ public class CinemaController {
     private Parent root;
 
 
-    @FXML
+    @FXML 
     private Label lblNombreClients;
 
     @FXML
@@ -33,6 +33,7 @@ public class CinemaController {
 
     @FXML
     private Label lblNombreSeances;
+
 
     public void initialize() {
         // Initialiser les objets AVANT de les utiliser

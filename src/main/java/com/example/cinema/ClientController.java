@@ -1,7 +1,6 @@
 package com.example.cinema;
 
 import Models.Client;
-import com.jfoenix.controls.JFXCheckBox;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -42,21 +41,28 @@ public class ClientController {
     @FXML
     private TextField prenom;
 
+    @FXML
+    private ChoiceBox<String> choice_status;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
 
 
     ObservableList<Client> items = FXCollections.observableArrayList();
+    ObservableList<String> itemsStatus = FXCollections.observableArrayList();
+
 
 
     @FXML
     public void initialize(){
         //lier items à la listeView au démarrage
         ClientList.setItems(items);
+        choice_status.setItems(itemsStatus);
 
 
         loadClients();
+        loadStatus();
 
     }
     @FXML
@@ -99,6 +105,7 @@ public class ClientController {
         String prenom = this.prenom.getText();
         String nomC = this.nomC.getText();
         String mail = this.mail.getText();
+        String selectedStatus = choice_status.getValue();
 
 
         if (prenom.isEmpty() || nomC.isEmpty() || mail.isEmpty()) {
@@ -115,7 +122,7 @@ public class ClientController {
             alert.showAndWait();
         } else {
             ClientManager cm = new ClientManager();
-            cm.addClient(prenom, nomC, mail);
+            cm.addClient(prenom, nomC, mail, selectedStatus);
             this.loadClients();
         }
     }
@@ -151,6 +158,7 @@ public class ClientController {
                 String nomC = rs.getString("nom");
                 int id = rs.getInt("id");
                 String mail = rs.getString("mail");
+                String status = rs.getString("status");
                 Client client = new Client(id, prenom, nomC, mail);
                 this.items.add(client);
             }
@@ -158,6 +166,12 @@ public class ClientController {
             throw new RuntimeException(e);
         }
 
+    }
+
+    private void loadStatus(){
+        itemsStatus.clear();
+        itemsStatus.addAll("etudiant", "senior"); // Numéros de séance prédéfinis
+        choice_status.setItems(itemsStatus);
     }
 
 }

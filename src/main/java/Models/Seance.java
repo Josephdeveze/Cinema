@@ -25,11 +25,13 @@ public class Seance {
         this.prix = prix;
     }
 
+
     @Override
     public String toString() {
         return "Séance " + numSeance + " | " +
                 "Client: " + client.getNomC() + " " + client.getPrenom() + " | " +
                 "Film: " + film.getName() + " | " +
-                "Prix: " + prix + "€";
+                "Prix: " + prix + "€" + " | ";
+
     }
 }

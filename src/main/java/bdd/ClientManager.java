@@ -4,15 +4,16 @@ import java.sql.*;
 
 public class ClientManager {
 
-    public boolean addClient(String nom, String prenom, String mail){
+    public boolean addClient(String nom, String prenom, String mail, String status){
         BddManager bddManager = new BddManager();
         Connection Connection = bddManager.connection();
-        String sql_request = "INSERT INTO clients (nom, prenom, mail) VALUES (?, ?, ?)";
+        String sql_request = "INSERT INTO clients (nom, prenom, mail, status) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement pstmt = Connection.prepareStatement(sql_request);
             pstmt.setString(1, nom);
             pstmt.setString(2, prenom);
             pstmt.setString(3, mail);
+            pstmt.setString(4, status);
             pstmt.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 24 mars 2025 à 15:49
+-- Généré le : jeu. 27 mars 2025 à 14:56
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -82,7 +82,8 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `firstname`, `lastname`, `password`) VALUES
-(5, 'joseph', 'deveze', 'Joseph13@');
+(5, 'joseph', 'deveze', 'Joseph13@'),
+(7, 'test', 'test', 'Test12@');
 
 -- --------------------------------------------------------
 
@@ -157,7 +158,7 @@ ALTER TABLE `films`
 -- AUTO_INCREMENT pour la table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `seances`

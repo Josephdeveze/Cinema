@@ -6,7 +6,6 @@ import Models.Seance;
 import bdd.ClientManager;
 import bdd.FilmManager;
 import bdd.SeanceManager;
-import com.itextpdf.barcodes.BarcodeQRCode;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
@@ -14,7 +13,6 @@ import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Table;
-import com.itextpdf.layout.property.HorizontalAlignment;
 import com.jfoenix.controls.JFXListView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,7 +24,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import com.itextpdf.kernel.pdf.*;
@@ -35,11 +32,8 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.TextAlignment;
 
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,6 +56,8 @@ public class SeanceController {
     @FXML
     private ChoiceBox<Integer> numSeanceField;
 
+
+
     @FXML
     private AnchorPane slider;
 
@@ -75,6 +71,8 @@ public class SeanceController {
     private ObservableList<Double> prixItems = FXCollections.observableArrayList();
     private ObservableList<Integer> seanceItems = FXCollections.observableArrayList();
 
+
+
     @FXML
     public void initialize() {
         seanceList.setItems(items3);
@@ -86,6 +84,7 @@ public class SeanceController {
         loadPrix();
         loadSeance();
         loadNumSeances();
+
 
     }
 
@@ -150,6 +149,7 @@ public class SeanceController {
                 return;
             }
 
+
             SeanceManager sm = new SeanceManager();
             sm.addSeance(numSeance, selectedClient.getId(), selectedFilm.getId(), selectedPrix); // Ajout avec le film_id
             loadSeance();
@@ -193,6 +193,7 @@ public class SeanceController {
                 int clientId = rs.getInt("clients_id");
                 int filmId = rs.getInt("films_id");
                 double prix = rs.getDouble("prix");
+
 
                 Client clientAssocie = null;
                 for (Client client : clientItems) {
@@ -273,6 +274,7 @@ public class SeanceController {
         prixItems.addAll(9.0, 10.0, 12.0, 15.0); // Ajoute les prix souhaités
         PrixChoice.setItems(prixItems);
     }
+
 
     private void showAlert(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

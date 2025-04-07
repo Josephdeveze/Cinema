@@ -1,8 +1,5 @@
 package Models;
 
-import com.jfoenix.controls.JFXListView;
-import javafx.scene.control.ListView;
-
 public class Client {
 
     private final int id;
@@ -47,6 +44,7 @@ public class Client {
     public void setMail(String mail) {
         this.mail = mail;
     }
+
 
     // Méthode pour afficher un client dans une ListView ou autre composant graphique
     @Override
