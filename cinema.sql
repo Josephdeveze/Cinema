@@ -83,7 +83,7 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`id`, `firstname`, `lastname`, `password`) VALUES
 (5, 'joseph', 'deveze', 'Joseph13@'),
-(7, 'test', 'test', 'Test12@');
+(7, 'test', 'test', 'Test12!@');
 
 -- --------------------------------------------------------
 
